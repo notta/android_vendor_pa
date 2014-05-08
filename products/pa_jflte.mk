@@ -16,14 +16,14 @@
 
 ifeq (pa_jflte,$(TARGET_PRODUCT))
 
+# Specify ro.pa.device
+DEVICE ?= jflte
+
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_xhdpi
+OVERLAY_TARGET := pa_xxhdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
-
-# Inherit telephony common stuff
-$(call inherit-product, vendor/pa/configs/telephony.mk)
 
 # Inherit extra tools
 $(call inherit-product, vendor/pa/configs/extra_tools.mk)
@@ -32,16 +32,12 @@ $(call inherit-product, vendor/pa/configs/extra_tools.mk)
 include vendor/pa/main.mk
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/jflte/full_jflte.mk)
+$(call inherit-product, device/samsung/jflte/pa.mk)
 
-# Override AOSP build properties
-PRODUCT_NAME := pa_jflte
-PRODUCT_DEVICE := jflte
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := jflte
+# Inherit telephony common stuff
+$(call inherit-product, vendor/pa/configs/telephony.mk)
 
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jflte TARGET_DEVICE=jflte
+# CM Package Extras if exists
+-include vendor/pa/configs/cm_packages.mk
 
 endif

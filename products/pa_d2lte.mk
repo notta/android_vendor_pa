@@ -16,29 +16,25 @@
 
 ifeq (pa_d2lte,$(TARGET_PRODUCT))
 
+# Specify ro.pa.device
+DEVICE ?= d2lte
+
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_xhdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
 
-# Inherit telephony common stuff
-$(call inherit-product, vendor/pa/configs/telephony.mk)
-
 # Include AOSPA common configuration
 include vendor/pa/main.mk
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/d2lte/full_d2lte.mk)
+$(call inherit-product, device/samsung/d2lte/pa.mk)
 
-# Override AOSP build properties
-PRODUCT_NAME := pa_d2lte
-PRODUCT_DEVICE := d2lte
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := d2lte
+# Inherit telephony common stuff
+$(call inherit-product, vendor/pa/configs/telephony.mk)
 
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=d2lte TARGET_DEVICE=d2lte
+# CM Package Extras if exists
+-include vendor/pa/configs/cm_packages.mk
 
 endif
