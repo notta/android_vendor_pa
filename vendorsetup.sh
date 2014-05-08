@@ -35,6 +35,7 @@ add_lunch_combo pa_m4-userdebug
 add_lunch_combo pa_m7-userdebug
 add_lunch_combo pa_m7spr-userdebug
 add_lunch_combo pa_m7vzw-userdebug
+add_lunch_combo pa_m8-userdebug
 add_lunch_combo pa_maserati-userdebug
 add_lunch_combo pa_meliusltexx-userdebug
 add_lunch_combo pa_melius3gxx-userdebug
@@ -47,9 +48,9 @@ add_lunch_combo pa_n7000-userdebug
 add_lunch_combo pa_n7100-userdebug
 add_lunch_combo pa_nozomi-userdebug
 add_lunch_combo pa_odin-userdebug
-add_lunch_combo pa_p880-userdebug
 add_lunch_combo pa_p3100-userdebug
 add_lunch_combo pa_p3110-userdebug
+add_lunch_combo pa_p880-userdebug
 add_lunch_combo pa_serrano3gxx-userdebug
 add_lunch_combo pa_serranoltexx-userdebug
 add_lunch_combo pa_skyrocket-userdebug

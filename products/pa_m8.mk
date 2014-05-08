@@ -1,4 +1,4 @@
-# Copyright (C) 2013 ParanoidAndroid Project
+# Copyright (C) 2014 ParanoidAndroid Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,10 @@
 
 # Check for target product
 
-ifeq (pa_ville,$(TARGET_PRODUCT))
+ifeq (pa_m8,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_hdpi
+OVERLAY_TARGET := pa_xxhdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
@@ -29,16 +29,16 @@ $(call inherit-product, vendor/pa/configs/telephony.mk)
 include vendor/pa/main.mk
 
 # Inherit device configuration
-$(call inherit-product, device/htc/ville/device.mk)
+$(call inherit-product, device/htc/m8/full_m8.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := ville
-PRODUCT_NAME := pa_ville
-PRODUCT_BRAND := HTC
-PRODUCT_MODEL := One S
-PRODUCT_MANUFACTURER := HTC
+# Override AOSP build properties
+PRODUCT_NAME := pa_m8
+PRODUCT_DEVICE := m8
+PRODUCT_BRAND := htc
+PRODUCT_MANUFACTURER := htc
+PRODUCT_MODEL := m8
 
-# Set build fingerprint / ID / Product Name etc.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_ville BUILD_FINGERPRINT=cingular_us/ville/ville:4.1.1/JRO03C/131981.6:user/release-keys PRIVATE_BUILD_DESC="3.18.502.6 CL131981 release-keys" BUILD_NUMBER=79936
-    
+# Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=m8 TARGET_DEVICE=m8
+
 endif

@@ -25,9 +25,6 @@ OVERLAY_TARGET := pa_xxhdpi
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
 
-# Inherit extra tools
-$(call inherit-product, vendor/pa/configs/extra_tools.mk)
-
 # Include AOSPA common configuration
 include vendor/pa/main.mk
 
